@@ -178,8 +178,10 @@ var SelectItem = function (_React$Component) {
             var index = selected.indexOf(val);
             if (index !== -1) {
               selected.splice(index, 1);
-            } else {
+            } else if (_this.state.filterConstrain > selected.length || _this.state.filterConstrain == -1) {
               selected.push(val);
+            } else {
+              _this.props.filterConstrainFeedback();
             }
           }
           _this.updatePendingValue(selected, cb) || _this.props.onChange(selected);
@@ -443,8 +445,8 @@ var SelectItem = function (_React$Component) {
       var aProps = {
         id: _this.state.id + '-' + i,
         href: '#',
-        onClick: option.disabled ? function () {
-          return null;
+        onClick: option.disabled ? function (e) {
+          return interceptEvent(e);
         } : _this.handleChange(option.value),
         onMouseDown: _this.handleMouseDown,
         className: className,
@@ -496,7 +498,8 @@ var SelectItem = function (_React$Component) {
       pendingValue: [],
       searchVisible: false,
       searchEnabled: typeof _this.props.filterFn === 'function',
-      searchText: ""
+      searchText: "",
+      filterConstrain: _this.props.filterConstrain ? _this.props.filterConstrain : -1
     };
     return _this;
   }

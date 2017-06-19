@@ -29,6 +29,10 @@ class Example extends React.Component {
     this.setState({ searchColors: colors })
   };
 
+  feedback(){
+    alert("can't select more than 5")
+  }
+
   render() {
     const childrens = [
       { value: 'red', name: 'Red', disabled: true },
@@ -62,7 +66,9 @@ class Example extends React.Component {
       label: "Favorite Colors",
       onChange: this.handleMultiChange,
       value: this.state.colors,
-      multiple: true
+      multiple: true,
+      filterConstrain: 5,
+      filterConstrainFeedback: this.feedback.bind(this)
     };
 
     const select4Props = {
@@ -95,7 +101,7 @@ class Example extends React.Component {
           )}
         </SelectItem>
 
-        <h1>Select Multiple Example</h1>
+        <h1>Select Multiple Example with filter selection restricted to 5</h1>
         <SelectItem {...select3Props}>
           { childrens.map((item, index) => (
               <option key={index} value={item.value}>{item.name}</option>

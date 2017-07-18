@@ -173,6 +173,7 @@ var SelectItem = function (_React$Component) {
         interceptEvent(event);
         if (_this.isMultiple()) {
           var selected = [];
+          var a = false;
           if (val !== null) {
             selected = _this.value().slice(0);
             var index = selected.indexOf(val);
@@ -182,9 +183,10 @@ var SelectItem = function (_React$Component) {
               selected.push(val);
             } else {
               _this.props.filterConstrainFeedback();
+              a = true;
             }
           }
-          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, !(_this.state.filterConstrain > selected.length + 1 || _this.state.filterConstrain == -1));
+          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, a);
           if (_this.state.searchEnabled) {
             _this.setState({ open: true });
           }

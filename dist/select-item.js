@@ -180,16 +180,22 @@ var SelectItem = function (_React$Component) {
               selected.splice(index, 1);
             } else if (_this.state.filterConstrain > selected.length || _this.state.filterConstrain == -1) {
               selected.push(val);
+              _this.setState({
+                restrict: false
+              });
             } else {
+              _this.setState({
+                restrict: true
+              });
               _this.props.filterConstrainFeedback();
             }
           }
-          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected);
+          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, _this.state.restrict);
           if (_this.state.searchEnabled) {
             _this.setState({ open: true });
           }
         } else {
-          _this.updatePendingValue(val, cb) || _this.props.onChange(val);
+          _this.updatePendingValue(val, cb) || _this.props.onChange(val, _this.state.restrict);
           _this.handleClose();
           if (!_this.state.searchEnabled) {
             _this.refs.button.focus();
@@ -209,14 +215,14 @@ var SelectItem = function (_React$Component) {
           return memo;
         }, []);
       }
-      _this.props.onChange(val);
+      _this.props.onChange(val, _this.state.restrict);
     };
 
     _this.handleClear = function (event) {
       interceptEvent(event);
       _this.handleChange(null, function () {
         // only called when change="true"
-        this.props.onChange(this.state.pendingValue);
+        this.props.onChange(this.state.pendingValue, this.state.restrict);
       })(event);
       _this.handleClose(event);
     };
@@ -248,7 +254,7 @@ var SelectItem = function (_React$Component) {
         _this.setState({ open: false, searchVisible: false, focusedIndex: -1 });
       }
       if (_this.changeOnClose()) {
-        _this.props.onChange(_this.state.pendingValue);
+        _this.props.onChange(_this.state.pendingValue, _this.state.restrict);
       }
     };
 
@@ -498,7 +504,8 @@ var SelectItem = function (_React$Component) {
       searchVisible: false,
       searchEnabled: typeof _this.props.filterFn === 'function',
       searchText: "",
-      filterConstrain: _this.props.filterConstrain ? _this.props.filterConstrain : -1
+      filterConstrain: _this.props.filterConstrain ? _this.props.filterConstrain : -1,
+      restrict: false
     };
     return _this;
   }

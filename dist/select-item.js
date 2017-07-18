@@ -184,7 +184,7 @@ var SelectItem = function (_React$Component) {
               _this.props.filterConstrainFeedback();
             }
           }
-          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, !(_this.state.filterConstrain > selected.length - 1 || _this.state.filterConstrain == -1));
+          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, !(_this.state.filterConstrain > selected.length + 1 || _this.state.filterConstrain == -1));
           if (_this.state.searchEnabled) {
             _this.setState({ open: true });
           }

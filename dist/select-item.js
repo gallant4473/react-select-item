@@ -426,8 +426,7 @@ var SelectItem = function (_React$Component) {
           "div",
           { className: 'react-select-box-off-screen' + (selectOptions.length === 0 ? ' no-items' : '') },
           selectOptions.length > 0 ? selectOptions.map(_this.renderOption) : _this.props.noItemsText
-        ),
-        _this.renderCloseButton()
+        )
       );
     };
 
@@ -545,7 +544,7 @@ var SelectItem = function (_React$Component) {
       }).map(function (option) {
         return option.label;
       });
-
+      console.log(selected);
       return selected.length > 0 ? selected.join(', ') : this.props.label;
     }
   }, {

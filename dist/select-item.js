@@ -180,22 +180,16 @@ var SelectItem = function (_React$Component) {
               selected.splice(index, 1);
             } else if (_this.state.filterConstrain > selected.length || _this.state.filterConstrain == -1) {
               selected.push(val);
-              _this.setState({
-                restrict: false
-              });
             } else {
-              _this.setState({
-                restrict: true
-              });
               _this.props.filterConstrainFeedback();
             }
           }
-          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, _this.state.restrict);
+          _this.updatePendingValue(selected, cb) || _this.props.onChange(selected, !(_this.state.filterConstrain > selected.length - 1 || _this.state.filterConstrain == -1));
           if (_this.state.searchEnabled) {
             _this.setState({ open: true });
           }
         } else {
-          _this.updatePendingValue(val, cb) || _this.props.onChange(val, _this.state.restrict);
+          _this.updatePendingValue(val, cb) || _this.props.onChange(val, false);
           _this.handleClose();
           if (!_this.state.searchEnabled) {
             _this.refs.button.focus();
@@ -215,17 +209,14 @@ var SelectItem = function (_React$Component) {
           return memo;
         }, []);
       }
-      _this.props.onChange(val, _this.state.restrict);
+      _this.props.onChange(val, false);
     };
 
     _this.handleClear = function (event) {
       interceptEvent(event);
-      _this.setState({
-        restrict: false
-      });
       _this.handleChange(null, function () {
         // only called when change="true"
-        this.props.onChange(this.state.pendingValue, this.state.restrict);
+        this.props.onChange(this.state.pendingValue, false);
       })(event);
       _this.handleClose(event);
     };
@@ -257,7 +248,7 @@ var SelectItem = function (_React$Component) {
         _this.setState({ open: false, searchVisible: false, focusedIndex: -1 });
       }
       if (_this.changeOnClose()) {
-        _this.props.onChange(_this.state.pendingValue, _this.state.restrict);
+        _this.props.onChange(_this.state.pendingValue, false);
       }
     };
 
@@ -507,8 +498,7 @@ var SelectItem = function (_React$Component) {
       searchVisible: false,
       searchEnabled: typeof _this.props.filterFn === 'function',
       searchText: "",
-      filterConstrain: _this.props.filterConstrain ? _this.props.filterConstrain : -1,
-      restrict: false
+      filterConstrain: _this.props.filterConstrain ? _this.props.filterConstrain : -1
     };
     return _this;
   }

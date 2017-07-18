@@ -220,6 +220,9 @@ var SelectItem = function (_React$Component) {
 
     _this.handleClear = function (event) {
       interceptEvent(event);
+      _this.setState({
+        restrict: false
+      });
       _this.handleChange(null, function () {
         // only called when change="true"
         this.props.onChange(this.state.pendingValue, this.state.restrict);
@@ -551,7 +554,6 @@ var SelectItem = function (_React$Component) {
       }).map(function (option) {
         return option.label;
       });
-      console.log(selected);
       return selected.length > 0 ? selected.join(', ') : this.props.label;
     }
   }, {

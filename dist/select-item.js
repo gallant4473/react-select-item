@@ -546,7 +546,7 @@ var SelectItem = function (_React$Component) {
       }).map(function (option) {
         return option.label;
       });
-      return selected.length > 0 ? selected.join(', ') : this.props.label;
+      return selected.length > 0 ? selected.length > 1 ? selected[0] + " +" + (selected.length - 1) : selected[0] : this.props.label;
     }
   }, {
     key: "isMultiple",

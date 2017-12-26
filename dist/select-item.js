@@ -181,6 +181,9 @@ var SelectItem = function (_React$Component) {
               selected.splice(index, 1);
             } else if (_this.state.filterConstrain > selected.length || _this.state.filterConstrain == -1) {
               selected.push(val);
+              _this.setState({
+                searchText: ""
+              });
             } else {
               _this.props.filterConstrainFeedback();
               a = true;

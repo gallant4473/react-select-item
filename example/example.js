@@ -14,18 +14,22 @@ class Example extends React.Component {
   }
 
   handleChange = (color) => {
+	debugger
     this.setState({ color: color })
   };
 
   handleMultiChange = (colors) => {
+	debugger
     this.setState({ colors: colors })
   };
 
   handleSingleSearchChange = (color) => {
+	debugger
     this.setState({ searchColor: color })
   };
 
   handleMultiSearchChange = (colors) => {
+	debugger
     this.setState({ searchColors: colors })
   };
 
@@ -85,6 +89,14 @@ class Example extends React.Component {
 
     return (
       <div className="example">
+        <h1>Select Multiple Search Example</h1>
+        <SelectItem {...select4Props}>
+          { childrens.map((item, index) => (
+              <option key={index} value={item.value}>{item.name}</option>
+            )
+          )}
+        </SelectItem>
+
         <h1>Select Item Example</h1>
         <SelectItem {...select1Props}>
           { childrens.map((item, index) => (
@@ -103,14 +115,6 @@ class Example extends React.Component {
 
         <h1>Select Multiple Example with filter selection restricted to 5</h1>
         <SelectItem {...select3Props}>
-          { childrens.map((item, index) => (
-              <option key={index} value={item.value}>{item.name}</option>
-            )
-          )}
-        </SelectItem>
-
-        <h1>Select Multiple Search Example</h1>
-        <SelectItem {...select4Props}>
           { childrens.map((item, index) => (
               <option key={index} value={item.value}>{item.name}</option>
             )

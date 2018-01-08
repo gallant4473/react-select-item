@@ -348,6 +348,7 @@ var SelectItem = function (_React$Component) {
         onClick: _this.toggleOpenClose,
         onBlur: _this.handleBlur,
         tabIndex: '0',
+        disabled: _this.props.disabled ? _this.props.disabled : false,
         'aria-hidden': true
       };
 

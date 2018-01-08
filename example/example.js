@@ -14,22 +14,18 @@ class Example extends React.Component {
   }
 
   handleChange = (color) => {
-	debugger
     this.setState({ color: color })
   };
 
   handleMultiChange = (colors) => {
-	debugger
     this.setState({ colors: colors })
   };
 
   handleSingleSearchChange = (color) => {
-	debugger
     this.setState({ searchColor: color })
   };
 
   handleMultiSearchChange = (colors) => {
-	debugger
     this.setState({ searchColors: colors })
   };
 
@@ -52,7 +48,8 @@ class Example extends React.Component {
       label: "Favorite Color",
       className: 'my-example-select-box',
       onChange: this.handleChange,
-      value: this.state.color
+      value: this.state.color,
+      disabled: true
     };
 
     const select2Props = {

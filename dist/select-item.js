@@ -629,7 +629,7 @@ var SelectItem = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { onKeyDown: this.handleKeyDown, className: className },
-        this.isSearchable() ? this.renderSearchButton() : this.renderDefaultButton(),
+        this.isSearchable() ? this.props.disabled ? this.renderDefaultButton() : this.renderSearchButton() : this.renderDefaultButton(),
         this.renderOptionMenu(),
         this.renderClearButton(),
         this.renderNativeSelect()

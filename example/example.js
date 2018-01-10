@@ -48,8 +48,7 @@ class Example extends React.Component {
       label: "Favorite Color",
       className: 'my-example-select-box',
       onChange: this.handleChange,
-      value: this.state.color,
-      disabled: true
+      value: this.state.color
     };
 
     const select2Props = {

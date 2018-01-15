@@ -67,6 +67,7 @@ class Example extends React.Component {
       onChange: this.handleMultiChange,
       value: this.state.colors,
       multiple: true,
+      moreLabel: true,
       filterConstrain: 5,
       filterConstrainFeedback: this.feedback.bind(this)
     };

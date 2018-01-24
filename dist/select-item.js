@@ -421,6 +421,7 @@ var SelectItem = function (_React$Component) {
         onBlur: _this.handleBlur,
         onFocus: _this.handleFocus,
         'aria-hidden': true,
+        onMouseDown: _this.onMenuClick,
         ref: 'menu',
         tabIndex: 0
       };
@@ -506,6 +507,7 @@ var SelectItem = function (_React$Component) {
       searchText: "",
       filterConstrain: _this.props.filterConstrain ? _this.props.filterConstrain : -1
     };
+    _this.onMenuClick = _this.onMenuClick.bind(_this);
     return _this;
   }
 
@@ -532,6 +534,12 @@ var SelectItem = function (_React$Component) {
         return true;
       }
       return false;
+    }
+  }, {
+    key: "onMenuClick",
+    value: function onMenuClick(e) {
+      interceptEvent(e);
+      this.setState({ open: true, searchVisible: false });
     }
   }, {
     key: "moveFocus",

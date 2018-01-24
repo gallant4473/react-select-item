@@ -41,20 +41,6 @@ class Example extends React.Component {
       { value: 'black', name: 'Black' },
       { value: 'yellow', name: 'Yellow' },
       { value: 'purple', name: 'Purple' },
-      { value: 'greenish', name: 'Light greenish with a little bit of yellow' },
-      { value: 'red', name: 'Red', disabled: true },
-      { value: 'orange', name: 'Orange' },
-      { value: 'green', name: 'Green' },
-      { value: 'black', name: 'Black' },
-      { value: 'yellow', name: 'Yellow' },
-      { value: 'purple', name: 'Purple' },
-      { value: 'greenish', name: 'Light greenish with a little bit of yellow' },
-      { value: 'red', name: 'Red', disabled: true },
-      { value: 'orange', name: 'Orange' },
-      { value: 'green', name: 'Green' },
-      { value: 'black', name: 'Black' },
-      { value: 'yellow', name: 'Yellow' },
-      { value: 'purple', name: 'Purple' },
       { value: 'greenish', name: 'Light greenish with a little bit of yellow' }
     ];
 

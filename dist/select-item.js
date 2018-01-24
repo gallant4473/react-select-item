@@ -538,7 +538,7 @@ var SelectItem = function (_React$Component) {
   }, {
     key: "onMenuClick",
     value: function onMenuClick(e) {
-      interceptEvent(e);
+      // interceptEvent(e)
       this.setState({ open: true, searchVisible: false });
     }
   }, {
